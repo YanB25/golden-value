@@ -1,7 +1,7 @@
 from random import *
 history = []
 def read():
-    line, cnt = input().split('    ') # 读第一行的两个数字
+    line, cnt = input().split('\t') # 读第一行的两个数字
     line, cnt = (int(line), int(cnt))
     for _ in range(line):
         goldValue, *playerValues = input().strip().split('\t') # 读第i行的内容
