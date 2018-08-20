@@ -21,7 +21,7 @@ def calculate():
         acculateValue = acculateValue * (1-alpha) + gv * alpha
     if (abs(history[-1]['goldValue']-history[-2]['goldValue'] <= 1)) or random() <= 0.25:
         err = random() * 10 + 85
-        return err, acculateValue + err/46*0.618
+        return err, acculateValue + err/(2*cnt)*0.618
     else:
         return acculateValue, acculateValue
 
@@ -29,9 +29,9 @@ def main():
     try:
         read()
         ret = calculate()
-        print('{:f}\t{:f}'.format(ret[0], ret[1]))
+        print('{:.2f}\t{:.2f}'.format(ret[0], ret[1]))
     except:
-        print('{:f}\t{:f}'.format(random() * 3 + 20, random()*5 + 20))
+        print('{:.2f}\t{:.2f}'.format(random() * 3 + 20, random()*5 + 20))
 
 
 
