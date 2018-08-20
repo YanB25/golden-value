@@ -21,7 +21,7 @@ def calculate():
     for idx, historyData in enumerate(history):
         gv = historyData['goldValue']
         acculateValue = acculateValue * (1-alpha) + gv * alpha
-    if (abs(history[-1]['goldValue']-history[-2]['goldValue'] <= 1)) or random() <= 0.25:
+    if (abs(history[-1]['goldValue']-history[-2]['goldValue']) <= 1) or random() <= 0.25:
         err = random() * 10 + 85
         return err, acculateValue + err/(2*23)*0.618
     else:
