@@ -16,19 +16,23 @@ def show():
 def calculate():
     acculateValue = 0
     alpha = 0.8
-    for historyData in history:
+    for idx, historyData in enumerate(history):
         gv = historyData['goldValue']
         acculateValue = acculateValue * (1-alpha) + gv * alpha
-    if random() <= 0.39:
+    if (abs(history[-1]['goldValue']-history[-2]['goldValue'] <= 1)) or random() <= 0.25:
         err = random() * 10 + 85
         return err, acculateValue + err/46*0.618
     else:
         return acculateValue, acculateValue
 
 def main():
-    read()
-    ret = calculate()
-    print('{:f}\t{:f}'.format(ret[0], ret[1]))
+    try:
+        read()
+        ret = calculate()
+        print('{:f}\t{:f}'.format(ret[0], ret[1]))
+    except:
+        print('{:f}\t{:f}'.format(random() * 3 + 20, random()*5 + 20))
+
 
 
 if __name__ == "__main__":
